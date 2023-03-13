@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:whatsapp/pagelayouts/home.dart';
+import 'package:Whatsapp/pagelayouts/home.dart';
 void main(){
   runApp(homeApp());
 }
