@@ -21,8 +21,10 @@ class Home extends StatelessWidget {
               snap: true,
               scrolledUnderElevation: 10,
               bottom: TabBar(
-                // labelPadding: EdgeInsets.symmetric(horizontal: 30),
-                // isScrollable: true,
+                  // labelPadding: EdgeInsets.symmetric(horizontal: 0),
+
+                  // labelPadding: EdgeInsets.symmetric(horizontal: 30),
+                  // isScrollable: true,
                   indicator: UnderlineTabIndicator(
                       borderSide: BorderSide(
                           width: 2,
@@ -30,15 +32,20 @@ class Home extends StatelessWidget {
                           style: BorderStyle.solid)),
                   tabs: [
                     Tab(
-                      // height: ,
-                      iconMargin: EdgeInsets.only(left: 0),
-                      child: Icon(Icons.people),
+                      // width: 1,
+                      icon: Icon(Icons.groups),
                     ),
+                    // Tab(
+                    //   // height: ,
+                    //   iconMargin: EdgeInsets.only(left: 0),
+                    //   child: Icon(Icons.people),
+                    // ),
                     Tab(
                         child: Row(
+                          mainAxisAlignment: MainAxisAlignment.center,
                       children: [
                         Text("Chats",
-                            style: TextStyle(color: Color(0xff00A884))),
+                            style: TextStyle(color: Color(0xff00A884), fontSize: 16)),
                         SizedBox(
                           width: 6,
                         ),
@@ -48,11 +55,11 @@ class Home extends StatelessWidget {
                                 child: Text(
                               "45",
                               style: TextStyle(
-                                  fontSize: 11,
+                                  fontSize: 10,
                                   fontFamily: "monospace",
                                   foreground: Paint()),
                             )),
-                            radius: 9.9)
+                            radius: 8)
                       ],
                     )),
                     Tab(text: "Status"),
@@ -73,13 +80,45 @@ class Home extends StatelessWidget {
               actions: [
                 Icon(Icons.camera_alt_outlined, color: Colors.blueGrey[400]),
                 SizedBox(
-                  width: 16,
+                  width: 30,
                 ),
                 Icon(Icons.search, color: Colors.blueGrey[400]),
                 SizedBox(
                   width: 8,
                 ),
-                Icon(Icons.more_vert_outlined, color: Colors.blueGrey[400]),
+                PopupMenuButton(icon: Icon(Icons.more_vert_sharp, color: Colors.blueGrey[400]), surfaceTintColor: Colors.blueGrey[900], color: Colors.blueGrey[900], elevation: 3, itemBuilder: (BuildContext context) {
+                  return [
+                    PopupMenuItem(
+                      child: Text("New group", style: TextStyle(color: Colors.white),),
+                      value: "View group",
+                    ),
+                    PopupMenuItem(
+                      child: Text("New broadcast", style: TextStyle(color: Colors.white),),
+                      value: "View broadcast",
+                    ),
+                    PopupMenuItem(
+                      child: Text("Linked devices",
+                            style: TextStyle(color: Colors.white),
+                          ),
+                      value: "View devices",
+                    ),
+                    PopupMenuItem(
+                      child: Text("Starred messages", style: TextStyle(color: Colors.white),
+                          ),
+                      value: "View messages",
+                    ),
+                    PopupMenuItem(
+                      child: Text("Payments", style: TextStyle(color: Colors.white),
+                          ),
+                      value: "View group",
+                    ),
+                    PopupMenuItem(
+                      child: Text("Settings", style: TextStyle(color: Colors.white),
+                          ),
+                      value: "View settings",
+                    ),
+                  ];
+                }), 
                 SizedBox(
                   width: 8,
                 )
